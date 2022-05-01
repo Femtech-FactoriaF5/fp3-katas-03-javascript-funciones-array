@@ -9,9 +9,20 @@ import {maxOfTwoNumbers,
     greatestProduct
 }  from '../src/funcArray.js';
 
+const shuffle = (currentArray) => {
+  // let array = currentArray.slice();
+  let array = [...currentArray];
+  let counter = array.length;
+  while (counter > 0) {
+    let index = Math.floor(Math.random() * counter--);
+    array[index] = [array[counter], array[counter] = array[index]][0];
+  }
+  return array;
+}
+
 test('1+1 = 2',()=>expect(1+1).toBe(2));
 
-describe('Find the maximun - maxOfTwoNumbers', ()=>{
+describe('Find the maximun - maxOfTwoNumbers #1', ()=>{
     test('Defines maxOfTwoNumbers',()=>{
         expect(typeof maxOfTwoNumbers).toBe('function');
     });
@@ -28,7 +39,7 @@ describe('Find the maximun - maxOfTwoNumbers', ()=>{
       });
 })
 
-describe('Finding Longest Word - findLongestWord', ()=> {
+describe('Finding Longest Word - findLongestWord #2', ()=> {
 test('Defines findLongestWord', ()=> {
       expect(typeof findLongestWord).toBe('function');
     });
@@ -37,8 +48,8 @@ test('returns undefined testh an empty array', ()=> {
       expect(findLongestWord([])).toBe(undefined);
     });
 
-test('returns the word testh an 1-word array', ()=> {
-      expect(findLongestWord(['foo'])).toBe('foo');
+test('returns the word test an 1-word array', ()=> {
+      expect(findLongestWord(['test'])).toBe('test');
     });
 
 test('returns the first occurrence word when longest have multiple occurrences ', ()=> {
@@ -46,15 +57,15 @@ test('returns the first occurrence word when longest have multiple occurrences '
       expect(findLongestWord(['bar', 'foo'])).toBe('bar');
     });
 
-test('returns the longest occurrence whentest has multiple words', ()=> {
-      let words = ['a', 'zab', '12abc', '$$abcd', 'abcde', 'bcncodes'];
+test('returns the longest occurrence when test has multiple words', ()=> {
+      let words = ['a', 'zab', '12abc', '$$abcd', 'abcde', 'factoriaF5'];
       for (let i = 0; i < 10; i++) {
-        expect(findLongestWord(shuffle(words))).toBe('bcncodes');
+        expect(findLongestWord(shuffle(words))).toBe('factoriaF5');
       }
     });
   });
 
-  describe('Calculating a Sum - sumArray', ()=> {
+  describe('Calculating a Sum - sumArray #3', ()=> {
 test('Defines sumArray', ()=> {
       expect(typeof sumArray).toBe('function');
     });
@@ -80,7 +91,7 @@ test('returns the sum, negative', ()=> {
     });
   });
 
-  describe('Calculating the Average - averageNumbers', ()=> {
+  describe('Calculating the Average - averageNumbers #4', ()=> {
 test('Defines averageNumbers', ()=> {
       expect(typeof averageNumbers).toBe('function');
     });
@@ -106,7 +117,7 @@ test('returns the average of the array, float result', ()=> {
     });
   });
 
-  describe('Calculating the Average - averageWordLength', ()=> {
+  describe('Calculating the Average - averageWordLength #5', ()=> {
 test('Defines averageWordLength', ()=> {
       expect(typeof averageWordLength).toBe('function');
     });
@@ -128,7 +139,7 @@ test('returns the average of a the array', ()=> {
     });
   });
 
-  describe('Unique Arrays - uniquifyArray', ()=> {
+  describe('Unique Arrays - uniquifyArray #6', ()=> {
 test('Defines uniquifyArray', ()=> {
       expect(typeof uniquifyArray).toBe('function');
     });
@@ -137,12 +148,12 @@ test('returns undefined testh an empty array', ()=> {
       expect(uniquifyArray([])).toBe(undefined);
     });
 
-test('returns the array when having a singleelement', ()=> {
-      expect(uniquifyArray(['Bcncodes'])).toEqual(['Bcncodes']);
+test('returns the array when having a single element', ()=> {
+      expect(uniquifyArray(['FactoriaF5'])).toEqual(['FactoriaF5']);
     });
 
 test('returns the correct array when having an array of the same element', ()=> {
-      expect(uniquifyArray(['Bcncodes', 'Bcncodes', 'Bcncodes'])).toEqual(['Bcncodes']);
+      expect(uniquifyArray(['FactoriaF5', 'FactoriaF5', 'FactoriaF5'])).toEqual(['FactoriaF5']);
     });
 
 test('returns the same array when no element is repeated', ()=> {
@@ -154,7 +165,7 @@ test('returns the uniquified array', ()=> {
     });
   });
 
-  describe('Finding Elements - doesWordExist', ()=> {
+  describe('Finding Elements - doesWordExist #7', ()=> {
 test('Defines doesWordExist', ()=> {
       expect(typeof doesWordExist).toBe('function');
     });
@@ -176,7 +187,7 @@ test('returns true if the word we are looking is in the array', ()=> {
     });
   });
 
-  describe('Counting Repetion - howManyTimes', ()=> {
+  describe('Counting Repetion - howManyTimes #8', ()=> {
 test('Defines howManyTimes', ()=> {
       expect(typeof howManyTimes).toBe('function');
     });
@@ -199,7 +210,7 @@ test('returns five when the word appears 5 times on the array', ()=> {
   });
 
   describe('Counting Repetion - greatestProduct', ()=> {
-test('Defines greatestProduct', ()=> {
+test('Defines greatestProduct #9', ()=> {
       expect(typeof greatestProduct).toBe('function');
     });
 
