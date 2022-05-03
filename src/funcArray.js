@@ -6,7 +6,7 @@ export function maxOfTwoNumbers(num1, num2){
 }
 
 /* Encuentra la palabra mas larga */
-//Forma guay de hacerlo ( con el codigo entendido, no solo copiado)
+//Forma 1 de resolver
 export function findLongestWord(arrayWords){
     if(arrayWords.length === 0) {
         return undefined;
@@ -21,7 +21,7 @@ export function findLongestWord(arrayWords){
     return longestWord;
 }
 }  
-//Forma no  tan guay 
+//Forma 2 de resolver
 // export function findLongestWord(arrayWords){
 //     let longestWord = "";
 //     if(arrayWords.length === 0) {
@@ -60,13 +60,10 @@ const sumWithInitial = nombreArray.reduce(
 /*Calcula la media aritmética*/
 //Array de Números
 export function averageNumbers(nombreArray){
-    if(nombreArray.length === 0) {
+    if(!nombreArray.length) 
         return undefined;
-    } else {
-        let suma = sumArray(nombreArray)
-        let media = suma/nombreArray.length
-        return media
-    }
+        return  sumArray(nombreArray)/nombreArray.length
+    
 }
 // Array of Strings
 export function averageWordLength(array){
@@ -91,24 +88,10 @@ export function uniquifyArray(array){
     }
 }
 // Busca elementos
-export function doesWordExist(array,buscar){
-    if(array.find(buscar)) {
-        return true;
-    } else {
-        return false;
-    }
-}
+export function doesWordExist(array,buscar){}
 //Cuenta repeticiones
-export function howManyTimes(array,buscar){
-    let exist = doesWordExist(array,buscar);
-    if( exist == false) {
-        return undefined;
-    } else {
-        return array.reduce((a, c) => (a[c] ? a[c] += 1 : a[c]=1, a), {});
-    }
-}
+export function howManyTimes(){}
 export function greatestProduct(){}
-
 
 
 
