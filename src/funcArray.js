@@ -88,9 +88,23 @@ export function uniquifyArray(array){
     }
 }
 // Busca elementos
-export function doesWordExist(array,buscar){}
+export function doesWordExist(array,buscar){
+     if(array.includes(buscar))
+     return true;
+     return false;
+}
 //Cuenta repeticiones
-export function howManyTimes(){}
+export function howManyTimes(array,buscar){
+    if(!array.length) {
+        return undefined;
+    } else {let contador= 0;
+    array.forEach(element => {
+    if(element.includes(buscar)){
+      contador ++
+    }
+  });
+  return contador;}
+ }  
 export function greatestProduct(){}
 
 
