@@ -48,9 +48,7 @@ export function uniquifyArray(array){
     }
     let unicos = [];
     for(let i = 0; i < array.length; i++) {
- 
         const elemento = array[i];
-       
         if (!unicos.includes(array[i])) {
           unicos.push(elemento);
         }
@@ -58,11 +56,13 @@ export function uniquifyArray(array){
     return unicos
 
 }
+
 export function doesWordExist(array, valor){
     
     let resultado = array.includes(valor);
     return resultado
 }
+
 export function howManyTimes(array, valor){
     if(array.length === 0){
         return undefined
