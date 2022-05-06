@@ -71,6 +71,7 @@ export function averageWordLength(array){
   let mediaWords= averageNumbers(largeWords);
   return mediaWords;
 }
+
 //Unique Arrays
 export function uniquifyArray(array){
     if(array.length === 0) {
