@@ -37,14 +37,14 @@ export function findLongestWord(arrayWords){
 // }
 
 /* Calcula la suma */
-//Forma guay de hacerlo ( con el codigo entendido, no solo copiado)
+//Forma guay de hacerlo 
 export function sumArray(nombreArray){
-const initialValue = 0 
 const sumWithInitial = nombreArray.reduce(
-    (previousValue, currentValue) => previousValue + currentValue,
-  initialValue );
+(previousValue, currentValue) => previousValue + currentValue,
+  0 );
     return  sumWithInitial
 }
+
 //Forma no  tan guay
 
 // export function sumArray(nombreArray){
