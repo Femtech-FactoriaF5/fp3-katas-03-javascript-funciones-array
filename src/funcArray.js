@@ -106,7 +106,48 @@ export function howManyTimes(array,buscar){
   });
   return contador;}
  }  
-export function greatestProduct(){}
+
+ //Cual es el producto mayor de cuatro números adyacentes? 
+export function greatestProduct(array){
+    let max= 0;
+    for (let i =0; i<array.length; i++){ 
+        // Calcula horizontal
+        for (let j =0; j<array[i].length-3; j++){ //Omite los ultimos 3, ya que estos últimos no pueden agruparse en grupos de 4
+            if(array[i][j]*array[i][j+1]*array[i][j+2]*array[i][j+3] > max){
+                max = array[i][j]*array[i][j+1]*array[i][j+2]*array[i][j+3];
+            };
+        }
+        }
+    for (let i =0; i<array.length-3; i++){ 
+            // Calcula vertical
+            for (let j =0; j<array[i].length; j++){ 
+                if( array[i][j]*array[i+1][j]*array[i+2][j]*array[i+3][j] > max){
+                    max=array[i][j]*array[i+1][j]*array[i+2][j]*array[i+3][j]
+                };
+            }   
+        }
+        for (let i =0; i<array.length-3; i++){ 
+            // Calcula diagonal de izquierda-superior a derecha-inferior
+            for (let j =3; j<array[i].length; j++){ 
+                if( array[i][j]*array[i+1][j-1]*array[i+2][j-2]*array[i+3][j-3] > max){
+                    max =  array[i][j]*array[i+1][j-1]*array[i+2][j-2]*array[i+3][j-3]
+                };
+        }
+        }
+        let reverse= array.map(x => x.reverse())
+        for (let i =0; i<reverse.length-3; i++){ 
+            // Calcula diagonal de izquierda-superior a derecha-inferior
+            for (let j =3; j<reverse[i].length; j++){ 
+                if( reverse[i][j]*reverse[i+1][j-1]*reverse[i+2][j-2]*reverse[i+3][j-3] > max){
+                    max =  reverse[i][j]*reverse[i+1][j-1]*reverse[i+2][j-2]*reverse[i+3][j-3]
+                };
+        }
+        
+        }
+
+        return max
+    }
+
 
 
 
