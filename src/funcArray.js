@@ -76,7 +76,45 @@ export function howManyTimes(array, valor){
     return repetidos.length;
 
 }
-export function greatestProduct(){}
+export function greatestProduct(array){
+    let horizontal = 0;
+    let vertical = 0;
+    let diagonal = 0;
+    for(let i =0; i<array.length ; i++){
+        for(let j =0; j<array[i].length-3 ; j++){
+            let producto = array[i][j]*array[i][j+1]*array[i][j+2]*array[i][j+3]
+            if(producto>horizontal){
+                horizontal = producto;
+            }
+        }
+    }
+    for(let i=0; i<array.length -3; i++){
+        for(let j=0; j<array[i].length; j++){
+            let producto = array[i][j]*array[i+1][j]*array[i+2][j]*array[i+3][j]
+            if(producto>vertical){
+                vertical = producto;
+            }
+        }
+    }
+    function recorreDiagonal(array){
+        for(let i=0; i<array.length -3; i++){
+            for(let j=0; j<array[i].length -3; j++){
+                let producto = array[i][j]*array[i+1][j+1]*array[i+2][j+2]*array[i+3][j+3]
+                if(producto>diagonal){
+                    diagonal = producto;
+                }
+            }
+        }
+    }
+    recorreDiagonal(array);
+    
+    let reverse = array.map(x=>x.reverse());
+
+    recorreDiagonal(reverse);
+
+    return Math.max(horizontal, vertical, diagonal)
+    
+}
 
 
 
