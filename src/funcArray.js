@@ -126,7 +126,8 @@ export function greatestProduct(array){
                 };
             }   
         }
-        for (let i =0; i<array.length-3; i++){ 
+        function recorrerDiagonal(array){
+            for (let i =0; i<array.length-3; i++){ 
             // Calcula diagonal de izquierda-superior a derecha-inferior
             for (let j =3; j<array[i].length; j++){ 
                 if( array[i][j]*array[i+1][j-1]*array[i+2][j-2]*array[i+3][j-3] > max){
@@ -134,16 +135,19 @@ export function greatestProduct(array){
                 };
         }
         }
+    }
+    recorrerDiagonal(array);
         let reverse= array.map(x => x.reverse())
-        for (let i =0; i<reverse.length-3; i++){ 
-            // Calcula diagonal de izquierda-superior a derecha-inferior
-            for (let j =3; j<reverse[i].length; j++){ 
-                if( reverse[i][j]*reverse[i+1][j-1]*reverse[i+2][j-2]*reverse[i+3][j-3] > max){
-                    max =  reverse[i][j]*reverse[i+1][j-1]*reverse[i+2][j-2]*reverse[i+3][j-3]
-                };
-        }
+        recorrerDiagonal(reverse);
+        // for (let i =0; i<reverse.length-3; i++){ 
+        //     Calcula diagonal de izquierda-superior a derecha-inferior
+        //     for (let j =3; j<reverse[i].length; j++){ 
+        //         if( reverse[i][j]*reverse[i+1][j-1]*reverse[i+2][j-2]*reverse[i+3][j-3] > max){
+        //             max =  reverse[i][j]*reverse[i+1][j-1]*reverse[i+2][j-2]*reverse[i+3][j-3]
+        //         };
+        // }
         
-        }
+        // }
 
         return max
     }
